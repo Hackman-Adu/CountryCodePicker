@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 
 class DialCodeSelectorTheme {
   final Color? dialCodeColor;
-  final Color? dropDownButtonColor;
-  final Color? selectedDialCodeColor;
   final Color? countryNameColor;
+  final bool? showCountriesOnly;
   DialCodeSelectorTheme(
       {this.dialCodeColor,
       this.countryNameColor,
-      this.dropDownButtonColor,
-      this.selectedDialCodeColor});
+      this.showCountriesOnly = false});
 }

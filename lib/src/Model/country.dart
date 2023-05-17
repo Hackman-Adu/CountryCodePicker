@@ -1,3 +1,4 @@
+import 'package:dialcodeselector/src/Utils/packageUtils.dart';
 import 'package:dialcodeselector/src/ViewModel/countryViewModel.dart';
 
 class Country {
@@ -19,6 +20,7 @@ class Country {
     return Country(
         countryShortName: country?.countryShortName,
         dialCode: country?.dialCode,
+        icon: "packages/${PackageUtils.packageName}/${country?.icon}",
         countryName: country?.countryName);
   }
 
@@ -32,9 +34,11 @@ class Country {
     }
   }
 
-  static Country get defaultCountry => Country(
-      icon: "asset/images/gh.png",
-      dialCode: "+233",
-      countryName: "Ghana",
-      countryShortName: "GH");
+  static Country setDefaultCountry(Country country) {
+    return Country(
+        dialCode: country.dialCode,
+        countryName: country.countryName,
+        countryShortName: country.countryShortName,
+        icon: country.icon);
+  }
 }

@@ -26,9 +26,7 @@ class SelectedCountryItemView extends StatelessWidget {
         trailing: const SelectedCountryCheckBox(isChecked: true),
         title: Text(country?.countryName ?? "",
             style: const TextStyle(
-                fontStyle: FontStyle.italic,
-                fontSize: 16,
-                color: PackageUtils.textColorBlack)),
+                fontSize: 16, color: PackageUtils.textColorBlack)),
       ),
       const Divider(height: 0)
     ]);

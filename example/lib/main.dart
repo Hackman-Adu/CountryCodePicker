@@ -30,7 +30,18 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   String? initialCountrCode;
 
-  Country? selectedCountry;
+  Country selectedCountry = Country.setDefaultCountry(Country(
+      countryName: "Ghana",
+      countryShortName: "gh",
+      dialCode: "+233",
+      icon: "asset/images/gh.png"));
+
+  void onCountrySelected(Country country) {
+    selectedCountry = country;
+    setState(() {});
+  }
+
+  DialCodeSelectorTheme theme = DialCodeSelectorTheme(showCountriesOnly: true);
 
   @override
   Widget build(BuildContext context) {
@@ -42,10 +53,29 @@ class _HomeViewState extends State<HomeView> {
               child: TextFormField(
             decoration: InputDecoration(
                 hintText: "Enter phone number",
-                prefixIcon: DialCodeSelector(callback: (selectedCountry) {
-                  //use selectedCountry from callback here, Country logo is Null here
-                  print("Selected Country: ${selectedCountry.countryName}");
-                })),
+                prefixIcon: MaterialButton(
+                    padding: EdgeInsets.zero,
+                    elevation: 0,
+                    highlightElevation: 0,
+                    onPressed: () async {
+                      await DialCodeSelector.selectCountry(context,
+                          selectorTheme: theme,
+                          initialCountryCode: selectedCountry.dialCode,
+                          onCountrySelected: onCountrySelected);
+                    },
+                    child: Row(mainAxisSize: MainAxisSize.min, children: [
+                      const SizedBox(width: 11),
+                      Image.asset(selectedCountry.icon ?? "",
+                          height: 21, width: 21),
+                      const SizedBox(width: 5),
+                      const Icon(Icons.arrow_drop_down),
+                      const SizedBox(width: 7),
+                      Padding(
+                          padding: const EdgeInsets.only(right: 13),
+                          child: Text(selectedCountry.dialCode ?? "",
+                              style: const TextStyle(
+                                  color: Colors.black, fontSize: 16)))
+                    ]))),
             onChanged: (String value) {},
           )),
         ));

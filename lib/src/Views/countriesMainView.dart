@@ -1,4 +1,5 @@
 import 'package:dialcodeselector/src/Model/country.dart';
+import 'package:dialcodeselector/src/Model/dialCodeSelectorTheme.dart';
 import 'package:dialcodeselector/src/ViewModel/countryViewModel.dart';
 import 'package:dialcodeselector/src/Views/countriesListView.dart';
 import 'package:dialcodeselector/src/Views/mainViewAppBar.dart';
@@ -8,7 +9,9 @@ import 'package:flutter/material.dart';
 
 class CountriesMainView extends StatefulWidget {
   final String? initialCountryCode;
-  const CountriesMainView({this.initialCountryCode, super.key});
+  final DialCodeSelectorTheme? dialCodeSelectorTheme;
+  const CountriesMainView(
+      {this.initialCountryCode, this.dialCodeSelectorTheme, super.key});
 
   @override
   State<CountriesMainView> createState() => _CountriesMainViewState();
@@ -41,6 +44,9 @@ class _CountriesMainViewState extends State<CountriesMainView> {
     _countries = viewModel.countries;
     _filteredCountries = _countries;
     _initialCountryCode = widget.initialCountryCode;
+    if (widget.dialCodeSelectorTheme != null) {
+      viewModel.selectorTheme = widget.dialCodeSelectorTheme;
+    }
   }
 
   @override

@@ -1,6 +1,5 @@
 import 'package:dialcodeselector/src/Model/country.dart';
 import 'package:dialcodeselector/src/Utils/packageUtils.dart';
-import 'package:dialcodeselector/src/Utils/selectedCountryCheckBox.dart';
 import 'package:dialcodeselector/src/ViewModel/countryViewModel.dart';
 import 'package:flutter/material.dart';
 
@@ -15,11 +14,12 @@ class CountryItemView extends StatelessWidget {
     return Column(children: [
       ListTile(
         minLeadingWidth: 0,
-        trailing: !viewModel.showCountriesOnly!
+        trailing: !viewModel.selectorTheme!.showCountriesOnly!
             ? Text(country.dialCode ?? "",
                 style: TextStyle(
-                    fontSize: 15, color: viewModel.selectorTheme.dialCodeColor))
-            : const SelectedCountryCheckBox(isChecked: false),
+                    fontSize: 15,
+                    color: viewModel.selectorTheme?.dialCodeColor))
+            : const Icon(Icons.chevron_right, size: 18),
         leading: country.icon != null
             ? Image.asset(country.icon ?? "",
                 height: 50, width: 18, package: PackageUtils.packageName)
@@ -33,7 +33,8 @@ class CountryItemView extends StatelessWidget {
         },
         title: Text(country.countryName ?? "",
             style: TextStyle(
-                fontSize: 17, color: viewModel.selectorTheme.countryNameColor)),
+                fontSize: 17,
+                color: viewModel.selectorTheme?.countryNameColor)),
       ),
       const Divider(height: 0)
     ]);

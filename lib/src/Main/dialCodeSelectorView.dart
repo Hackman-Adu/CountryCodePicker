@@ -1,43 +1,35 @@
-import 'package:dialcodeselector/dialcodeselector.dart';
-import 'package:dialcodeselector/src/Utils/dialCodeSelectorButton.dart';
+import 'package:dialcodeselector/src/Model/country.dart';
+import 'package:dialcodeselector/src/Model/dialCodeSelectorTheme.dart';
+import 'package:dialcodeselector/src/Utils/packageUtils.dart';
 import 'package:dialcodeselector/src/ViewModel/countryViewModel.dart';
+import 'package:dialcodeselector/src/Views/countriesMainView.dart';
 import 'package:flutter/material.dart';
 
-class DialCodeSelector extends StatefulWidget {
-  final bool? showCountriesOnly;
-  final DialCodeSelectorTheme? dialCodeSelectorTheme;
-  final Function(Country selectedCountry)? callback;
-  const DialCodeSelector(
-      {this.showCountriesOnly = false,
-      this.dialCodeSelectorTheme,
-      this.callback,
-      super.key});
-
-  @override
-  State<DialCodeSelector> createState() => _DialCodeSelectorState();
-}
-
-class _DialCodeSelectorState extends State<DialCodeSelector> {
-  Country selectedCountry = Country.defaultCountry;
-
-  void onCountrySelected(Country selectedCountry) async {
-    this.selectedCountry = selectedCountry;
-    widget.callback?.call(Country.forCallBack(selectedCountry));
-    setState(() {});
+class DialCodeSelector {
+  static Future<void> selectCountry(BuildContext context,
+      {String? initialCountryCode,
+      DialCodeSelectorTheme? selectorTheme,
+      Function(Country selectedCountry)? onCountrySelected}) async {
+    await CountryViewModel.instance.getCountries;
+    Country? country = await Navigator.of(context).push(PageRouteBuilder(
+        opaque: false,
+        barrierColor: PackageUtils.textColorBlack..withOpacity(0.5),
+        barrierLabel: '',
+        transitionDuration: const Duration(milliseconds: 200),
+        transitionsBuilder: (context, startAnimation, endAnimation, child) {
+          return SlideTransition(
+              position:
+                  Tween<Offset>(end: Offset.zero, begin: const Offset(0, 1))
+                      .animate(startAnimation),
+              child: child);
+        },
+        reverseTransitionDuration: const Duration(milliseconds: 200),
+        pageBuilder: (context, startAnimation, endAnimation) {
+          return CountriesMainView(
+              dialCodeSelectorTheme: selectorTheme,
+              initialCountryCode: initialCountryCode);
+        }));
+    if (country == null) return;
+    onCountrySelected?.call(Country.forCallBack(country));
   }
-
-  CountryViewModel get viewModel => CountryViewModel.instance;
-
-  @override
-  void initState() {
-    super.initState();
-    viewModel.showCountriesOnly = widget.showCountriesOnly;
-    if (widget.dialCodeSelectorTheme != null) {
-      viewModel.selectorTheme = widget.dialCodeSelectorTheme!;
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) =>
-      DialCodeSelectorButton(selectedCountry, onTap: onCountrySelected);
 }
