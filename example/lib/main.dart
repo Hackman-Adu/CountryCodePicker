@@ -44,8 +44,6 @@ class _HomeViewState extends State<HomeView> {
     setState(() {});
   }
 
-  DialCodeSelectorTheme theme = DialCodeSelectorTheme(showCountriesOnly: true);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +60,6 @@ class _HomeViewState extends State<HomeView> {
                     highlightElevation: 0,
                     onPressed: () async {
                       await DialCodeSelector.selectCountry(context,
-                          selectorTheme: theme,
                           initialShortName: selectedCountry.countryShortName,
                           onCountrySelected: onCountrySelected);
                     },

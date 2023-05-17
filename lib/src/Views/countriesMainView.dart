@@ -52,28 +52,25 @@ class _CountriesMainViewState extends State<CountriesMainView> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        FocusScope.of(context).unfocus();
-      },
-      child: Scaffold(
-          backgroundColor: Colors.transparent,
-          body: Container(
-              margin: const EdgeInsets.only(top: 60),
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(11)),
-                  color: Colors.white),
-              child: Column(children: [
-                const MainViewAppBar(),
-                SearchCountryTextField(
-                    onChange: onSearchCountry, hintText: "Search country"),
-                Padding(
-                    padding: const EdgeInsets.only(top: 7),
-                    child: SelectedCountryItemView(
-                        Country.fromCountryShortName(_initialCountryCode))),
-                Expanded(child: CountriesListView(_filteredCountries))
-              ]))),
-    );
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: Container(
+            margin: const EdgeInsets.only(top: 60),
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            decoration: const BoxDecoration(
+                borderRadius: BorderRadius.vertical(top: Radius.circular(11)),
+                color: Colors.white),
+            child: Column(children: [
+              const MainViewAppBar(),
+              SearchCountryTextField(
+                  onChange: onSearchCountry, hintText: "Search country"),
+              Padding(
+                  padding: const EdgeInsets.only(top: 7),
+                  child: SelectedCountryItemView(
+                      Country.fromCountryShortName(_initialCountryCode))),
+              Expanded(child: CountriesListView(_filteredCountries))
+            ])));
   }
 }

@@ -1,6 +1,5 @@
 import 'package:dialcodeselector/src/Model/country.dart';
 import 'package:dialcodeselector/src/Model/dialCodeSelectorTheme.dart';
-import 'package:dialcodeselector/src/Utils/packageUtils.dart';
 import 'package:dialcodeselector/src/Views/countriesMainView.dart';
 import 'package:flutter/material.dart';
 
@@ -9,24 +8,18 @@ class DialCodeSelector {
       {String? initialShortName,
       DialCodeSelectorTheme? selectorTheme,
       Function(Country selectedCountry)? onCountrySelected}) async {
-    Country? country = await Navigator.of(context).push(PageRouteBuilder(
-        opaque: false,
-        barrierColor: PackageUtils.textColorBlack..withOpacity(0.5),
-        barrierLabel: '',
-        transitionDuration: const Duration(milliseconds: 200),
-        transitionsBuilder: (context, startAnimation, endAnimation, child) {
-          return SlideTransition(
-              position:
-                  Tween<Offset>(end: Offset.zero, begin: const Offset(0, 1))
-                      .animate(startAnimation),
-              child: child);
-        },
-        reverseTransitionDuration: const Duration(milliseconds: 200),
-        pageBuilder: (context, startAnimation, endAnimation) {
+    Country? country = await showModalBottomSheet(
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        barrierColor: Colors.black.withOpacity(0.75),
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(7))),
+        context: context,
+        builder: (context) {
           return CountriesMainView(
               dialCodeSelectorTheme: selectorTheme,
               initialShortName: initialShortName);
-        }));
+        });
     if (country == null) return;
     onCountrySelected?.call(Country.forCallBack(country));
   }
