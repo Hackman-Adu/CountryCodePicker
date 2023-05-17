@@ -12,3 +12,8 @@
 - Added few theme customizations
 - Option to display only countries
 - Listen to callback, when country is selected
+
+## 1.0.7
+
+- Show code selector using bottom
+- bug fixes
