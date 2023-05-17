@@ -33,12 +33,14 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   String? initialCountrCode;
 
+//set your default country
   Country selectedCountry = Country.setDefaultCountry(Country(
       countryName: "Ghana",
       countryShortName: "gh",
       dialCode: "+233",
       icon: "asset/images/gh.png"));
 
+//implement callback
   void onCountrySelected(Country country) {
     selectedCountry = country;
     setState(() {});
