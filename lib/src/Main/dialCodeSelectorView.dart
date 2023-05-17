@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 class DialCodeSelector {
   static Future<void> selectCountry(BuildContext context,
-      {String? initialCountryCode,
+      {String? initialShortName,
       DialCodeSelectorTheme? selectorTheme,
       Function(Country selectedCountry)? onCountrySelected}) async {
     Country? country = await Navigator.of(context).push(PageRouteBuilder(
@@ -25,7 +25,7 @@ class DialCodeSelector {
         pageBuilder: (context, startAnimation, endAnimation) {
           return CountriesMainView(
               dialCodeSelectorTheme: selectorTheme,
-              initialCountryCode: initialCountryCode);
+              initialShortName: initialShortName);
         }));
     if (country == null) return;
     onCountrySelected?.call(Country.forCallBack(country));

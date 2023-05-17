@@ -24,11 +24,11 @@ class Country {
         countryName: country?.countryName);
   }
 
-  static Country? fromCountryDialCode(String? dialCode) {
-    if (dialCode == null) return null;
+  static Country? fromCountryShortName(String? shortName) {
+    if (shortName == null) return null;
     try {
-      return CountryViewModel.instance.countries
-          .singleWhere((element) => element.dialCode == dialCode);
+      return CountryViewModel.instance.countries.singleWhere((element) =>
+          element.countryShortName?.toLowerCase() == shortName.toLowerCase());
     } catch (e) {
       return null;
     }

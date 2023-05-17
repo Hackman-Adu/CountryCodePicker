@@ -63,7 +63,7 @@ class _HomeViewState extends State<HomeView> {
                     onPressed: () async {
                       await DialCodeSelector.selectCountry(context,
                           selectorTheme: theme,
-                          initialCountryCode: selectedCountry.dialCode,
+                          initialShortName: selectedCountry.countryShortName,
                           onCountrySelected: onCountrySelected);
                     },
                     child: Row(mainAxisSize: MainAxisSize.min, children: [
