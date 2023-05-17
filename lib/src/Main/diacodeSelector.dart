@@ -8,16 +8,21 @@ class DialCodeSelector {
   static Future<Country?> selectCountry(BuildContext context,
       {String? initialCountryCode}) async {
     await CountryViewModel.instance.getCountries;
-    return await showGeneralDialog(
-        barrierColor: PackageUtils.textColorBlack..withOpacity(0.04),
+    return await Navigator.of(context).push(PageRouteBuilder(
+        opaque: false,
+        barrierColor: PackageUtils.textColorBlack..withOpacity(0.5),
         barrierLabel: '',
-        transitionBuilder: (context, startAnimation, endAnimation, child) {
-          return ScaleTransition(child: child, scale: startAnimation);
-        },
         transitionDuration: const Duration(milliseconds: 200),
-        context: context,
+        transitionsBuilder: (context, startAnimation, endAnimation, child) {
+          return SlideTransition(
+              position:
+                  Tween<Offset>(end: Offset.zero, begin: const Offset(0, 1))
+                      .animate(startAnimation),
+              child: child);
+        },
+        reverseTransitionDuration: const Duration(milliseconds: 200),
         pageBuilder: (context, startAnimation, endAnimation) {
           return CountriesMainView(initialCountryCode: initialCountryCode);
-        });
+        }));
   }
 }

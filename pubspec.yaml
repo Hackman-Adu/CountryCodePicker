@@ -1,7 +1,7 @@
 name: dialcodeselector
-description: A new Flutter package project.
+description: A simple flutter package for selecting country dial code.
 version: 1.0.0
-homepage:
+homepage: https://github.com/Hackman-Adu/CountryCodePicker
 
 environment:
   sdk: ">=2.19.0 <3.0.0"

@@ -1,5 +1,4 @@
 import 'package:dialcodeselector/src/ViewModel/countryViewModel.dart';
-import 'package:collection/collection.dart';
 
 class Country {
   String? countryName;
@@ -18,7 +17,11 @@ class Country {
 
   static Country? fromCountryDialCode(String? dialCode) {
     if (dialCode == null) return null;
-    return CountryViewModel.instance.countries
-        .singleWhereOrNull((element) => element.dialCode == dialCode);
+    try {
+      return CountryViewModel.instance.countries
+          .singleWhere((element) => element.dialCode == dialCode);
+    } catch (e) {
+      return null;
+    }
   }
 }
