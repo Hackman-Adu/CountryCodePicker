@@ -6,3 +6,9 @@
 ## 1.0.1
 
 - Updated the example file
+
+## 1.0.2
+
+- Added few theme customizations
+- Option to display only countries
+- Listen to callback, when country is selected

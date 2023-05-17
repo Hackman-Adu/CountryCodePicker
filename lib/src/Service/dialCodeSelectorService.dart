@@ -1,7 +1,7 @@
 import 'package:dialcodeselector/src/Model/country.dart';
 
-class CountryService {
-  static Map<String, dynamic> get countriesJson => {
+class DialCodeSelectorService {
+  static Map<String, dynamic> get _countriesJson => {
         "countries": [
           {"name": "Afghanistan", "code": "AF", "dial_code": "+93"},
           {"name": "Åland", "code": "AX", "dial_code": "+358"},
@@ -318,7 +318,7 @@ class CountryService {
 
   static Future<List<Country>> get getCountries async {
     try {
-      var data = countriesJson;
+      var data = _countriesJson;
       return List<Country>.from(data['countries'].map((j) {
         return Country.fromJSON(j);
       }));

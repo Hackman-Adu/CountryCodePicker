@@ -15,6 +15,13 @@ class Country {
         countryName: json['name']);
   }
 
+  factory Country.forCallBack(Country? country) {
+    return Country(
+        countryShortName: country?.countryShortName,
+        dialCode: country?.dialCode,
+        countryName: country?.countryName);
+  }
+
   static Country? fromCountryDialCode(String? dialCode) {
     if (dialCode == null) return null;
     try {
@@ -24,4 +31,10 @@ class Country {
       return null;
     }
   }
+
+  static Country get defaultCountry => Country(
+      icon: "asset/images/gh.png",
+      dialCode: "+233",
+      countryName: "Ghana",
+      countryShortName: "GH");
 }
