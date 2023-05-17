@@ -19,7 +19,7 @@ class CountryViewModel {
       countryNameColor: PackageUtils.textColorBlack,
       dialCodeColor: PackageUtils.textColorBlack.withOpacity(0.65));
 
-  Future<void> get getCountries async {
+  Future<void> get initialiseCountries async {
     var values = await DialCodeSelectorService.getCountries;
     this._countries = values;
   }
