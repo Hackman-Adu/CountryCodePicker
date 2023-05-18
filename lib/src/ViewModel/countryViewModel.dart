@@ -1,7 +1,6 @@
 import 'package:dialcodeselector/src/Model/country.dart';
 import 'package:dialcodeselector/src/Model/dialCodeSelectorTheme.dart';
 import 'package:dialcodeselector/src/Service/dialCodeSelectorService.dart';
-import 'package:collection/collection.dart';
 
 class CountryViewModel {
   CountryViewModel._();
@@ -30,12 +29,21 @@ class CountryViewModel {
       Country.forCallBack(_getCountryByDialCode(dialCode: dialCode));
 
   Country? _getCountryByDialCode({String? dialCode}) {
-    return _countries.singleWhereOrNull((element) =>
-        element.dialCode?.replaceAll("+", "") == dialCode?.replaceAll("+", ""));
+    try {
+      return _countries.singleWhere((element) =>
+          element.dialCode?.replaceAll("+", "") ==
+          dialCode?.replaceAll("+", ""));
+    } catch (e) {
+      return null;
+    }
   }
 
   Country? _getCountryByShortName({String? shortName}) {
-    return _countries.singleWhereOrNull((element) =>
-        element.countryShortName?.toLowerCase() == shortName?.toLowerCase());
+    try {
+      return _countries.singleWhere((element) =>
+          element.countryShortName?.toLowerCase() == shortName?.toLowerCase());
+    } catch (e) {
+      return null;
+    }
   }
 }
