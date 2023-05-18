@@ -15,15 +15,12 @@
 
 ## 1.0.7
 
-- Show code selector using bottom
+- Show code selector using bottom sheet
 - bug fixes
 
 ## 1.0.8
 
 - Can now customise the bottom sheet
-
-## 1.0.9
-
 - Find country by short name
 - Find country by dial code
 - Improved UI

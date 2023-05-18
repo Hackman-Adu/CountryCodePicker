@@ -49,11 +49,15 @@ class _CountriesMainViewState extends State<CountriesMainView> {
     if (widget.dialCodeSelectorTheme != null) {
       viewModel.selectorTheme = widget.dialCodeSelectorTheme;
     }
+    viewModel.selectedCountry = selectedCountry;
   }
 
   void onLaunch() async {
     await HapticFeedback.mediumImpact();
   }
+
+  Country? get selectedCountry =>
+      viewModel.getCountryByShortName(shortName: _initialShortName);
 
   @override
   Widget build(BuildContext context) {
@@ -75,9 +79,7 @@ class _CountriesMainViewState extends State<CountriesMainView> {
                   onChange: onSearchCountry, hintText: "Search for a country"),
               Padding(
                   padding: const EdgeInsets.only(top: 7),
-                  child: SelectedCountryItemView(
-                      country: viewModel.getCountryByShortName(
-                          shortName: _initialShortName))),
+                  child: SelectedCountryItemView(country: selectedCountry)),
               Expanded(child: CountriesListView(_filteredCountries))
             ])));
   }

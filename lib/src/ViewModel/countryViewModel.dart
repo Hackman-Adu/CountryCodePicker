@@ -10,6 +10,8 @@ class CountryViewModel {
 
   static CountryViewModel get instance => _instance;
 
+  Country? selectedCountry;
+
   List<Country> _countries = [];
 
   List<Country> get countries => _countries;

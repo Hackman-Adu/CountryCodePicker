@@ -15,7 +15,7 @@ class SelectedCountryItemView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (country == null) return const SizedBox(height: 0);
+    if (country?.dialCode == null) return const SizedBox(height: 0);
     return Column(children: [
       ListTile(
         onTap: () {
