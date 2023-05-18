@@ -17,3 +17,7 @@
 
 - Show code selector using bottom
 - bug fixes
+
+## 1.0.8
+
+- Can now customise the bottom sheet
