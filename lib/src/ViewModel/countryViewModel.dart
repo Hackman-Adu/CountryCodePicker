@@ -1,7 +1,6 @@
 import 'package:dialcodeselector/src/Model/country.dart';
 import 'package:dialcodeselector/src/Model/dialCodeSelectorTheme.dart';
 import 'package:dialcodeselector/src/Service/dialCodeSelectorService.dart';
-import 'package:dialcodeselector/src/Utils/packageUtils.dart';
 
 class CountryViewModel {
   CountryViewModel._();
@@ -14,12 +13,9 @@ class CountryViewModel {
 
   List<Country> get countries => _countries;
 
-  DialCodeSelectorTheme? selectorTheme = DialCodeSelectorTheme(
-      showCountriesOnly: false,
-      countryNameColor: PackageUtils.textColorBlack,
-      dialCodeColor: PackageUtils.textColorBlack.withOpacity(0.65));
+  DialCodeSelectorTheme? selectorTheme = DialCodeSelectorTheme();
 
-  Future<void> get initialiseCountries async {
+  Future<void> get getCountries async {
     var values = await DialCodeSelectorService.getCountries;
     this._countries = values;
   }

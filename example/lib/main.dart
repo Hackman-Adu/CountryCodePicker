@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   //initialise the countries
-  await CountryViewModel.instance.initialiseCountries;
+  await DialCodeSelector.init();
   runApp(const MyApp());
 }
 

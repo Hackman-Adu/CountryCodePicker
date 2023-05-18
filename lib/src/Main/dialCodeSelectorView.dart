@@ -1,5 +1,6 @@
 import 'package:dialcodeselector/src/Model/country.dart';
 import 'package:dialcodeselector/src/Model/dialCodeSelectorTheme.dart';
+import 'package:dialcodeselector/src/ViewModel/countryViewModel.dart';
 import 'package:dialcodeselector/src/Views/countriesMainView.dart';
 import 'package:flutter/material.dart';
 
@@ -22,5 +23,9 @@ class DialCodeSelector {
         });
     if (country == null) return;
     onCountrySelected?.call(Country.forCallBack(country));
+  }
+
+  static Future<void> init() async {
+    await CountryViewModel.instance.getCountries;
   }
 }

@@ -24,7 +24,7 @@ class Country {
         countryName: country?.countryName);
   }
 
-  static Country? fromCountryShortName(String? shortName) {
+  static Country? findByShortName(String? shortName) {
     if (shortName == null) return null;
     try {
       return CountryViewModel.instance.countries.singleWhere((element) =>

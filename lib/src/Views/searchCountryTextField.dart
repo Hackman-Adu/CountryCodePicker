@@ -1,36 +1,46 @@
 import 'package:dialcodeselector/src/Utils/packageUtils.dart';
+import 'package:dialcodeselector/src/ViewModel/countryViewModel.dart';
 import 'package:flutter/material.dart';
 
 class SearchCountryTextField extends StatelessWidget {
   final dynamic onChange;
   final String? hintText;
   const SearchCountryTextField({this.onChange, this.hintText, super.key});
+
+  CountryViewModel get viewModel => CountryViewModel.instance;
   @override
   Widget build(BuildContext context) {
-    return Card(
-        margin: const EdgeInsets.only(right: 13, left: 13, bottom: 21),
-        elevation: 0,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7)),
-        color: PackageUtils.textColorBlack.withOpacity(0.05),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 21, vertical: 3),
-          child: Row(children: [
-            const Icon(Icons.search, color: PackageUtils.textColorBlack),
-            const SizedBox(width: 11),
-            Expanded(
-                child: TextFormField(
-              textInputAction: TextInputAction.done,
-              style: const TextStyle(
-                  fontSize: 17, color: PackageUtils.textColorBlack),
-              cursorColor: PackageUtils.textColorBlack,
-              onChanged: onChange,
-              decoration: InputDecoration(
-                  hintText: hintText,
-                  hintStyle: TextStyle(
-                      color: PackageUtils.textColorBlack.withOpacity(0.5)),
-                  border: InputBorder.none),
-            ))
-          ]),
+    return Padding(
+        padding:
+            const EdgeInsets.only(right: 21, left: 21, bottom: 21, top: 11),
+        child: TextFormField(
+          textInputAction: TextInputAction.done,
+          style: TextStyle(
+              fontSize: 17,
+              color: viewModel.selectorTheme?.searchFieldTextColor),
+          cursorColor: viewModel.selectorTheme?.searchFieldTextColor,
+          onChanged: onChange,
+          decoration: InputDecoration(
+              enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(7),
+                  borderSide: BorderSide(
+                      color: (viewModel.selectorTheme?.searchFieldTextColor ??
+                              PackageUtils.textColorBlack)
+                          .withOpacity(0.15))),
+              prefixIcon: Icon(Icons.search,
+                  color: viewModel.selectorTheme?.searchFieldTextColor),
+              focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(7),
+                  borderSide: BorderSide(
+                      width: 1.5,
+                      color: (viewModel.selectorTheme?.searchFieldTextColor ??
+                          PackageUtils.textColorBlack))),
+              hintText: hintText,
+              hintStyle: TextStyle(
+                  fontSize: 17,
+                  color: (viewModel.selectorTheme?.searchFieldTextColor)
+                      ?.withOpacity(0.5)),
+              border: InputBorder.none),
         ));
   }
 }

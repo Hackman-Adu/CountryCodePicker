@@ -1,10 +1,11 @@
-import 'package:dialcodeselector/src/Utils/packageUtils.dart';
+import 'package:dialcodeselector/src/ViewModel/countryViewModel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class MainViewAppBar extends StatelessWidget {
   const MainViewAppBar({super.key});
+
+  CountryViewModel get viewModel => CountryViewModel.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -15,19 +16,16 @@ class MainViewAppBar extends StatelessWidget {
           IconButton(
               splashRadius: 20,
               onPressed: () async {
-                await HapticFeedback.mediumImpact();
                 Navigator.of(context).pop();
               },
-              icon: const Icon(CupertinoIcons.clear,
-                  color: PackageUtils.textColorBlack)),
+              icon: Icon(CupertinoIcons.clear,
+                  color: viewModel.selectorTheme?.closeButtonColor)),
           const SizedBox(width: 11),
-          const Text(
-            "Select Country",
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: PackageUtils.textColorBlack,
-                fontSize: 21),
-          )
+          Text(viewModel.selectorTheme?.title ?? "N/A",
+              style: TextStyle(
+                  fontWeight: viewModel.selectorTheme?.titleFontWeight,
+                  color: viewModel.selectorTheme?.titleColor,
+                  fontSize: viewModel.selectorTheme?.titleFontSize))
         ]));
   }
 }
