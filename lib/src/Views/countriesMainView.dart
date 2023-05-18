@@ -25,7 +25,7 @@ class _CountriesMainViewState extends State<CountriesMainView> {
 
   CountryViewModel get viewModel => CountryViewModel.instance;
 
-  late String? _initialCountryCode;
+  late String? _initialShortName;
 
   void onSearchCountry(String value) {
     if (value.trim().trim().isEmpty) {
@@ -45,7 +45,7 @@ class _CountriesMainViewState extends State<CountriesMainView> {
     onLaunch();
     _countries = viewModel.countries;
     _filteredCountries = _countries;
-    _initialCountryCode = widget.initialShortName;
+    _initialShortName = widget.initialShortName;
     if (widget.dialCodeSelectorTheme != null) {
       viewModel.selectorTheme = widget.dialCodeSelectorTheme;
     }
@@ -76,7 +76,8 @@ class _CountriesMainViewState extends State<CountriesMainView> {
               Padding(
                   padding: const EdgeInsets.only(top: 7),
                   child: SelectedCountryItemView(
-                      country: Country.findByShortName(_initialCountryCode))),
+                      country: viewModel.getCountryByShortName(
+                          shortName: _initialShortName))),
               Expanded(child: CountriesListView(_filteredCountries))
             ])));
   }

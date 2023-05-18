@@ -1,5 +1,4 @@
 import 'package:dialcodeselector/src/Utils/packageUtils.dart';
-import 'package:dialcodeselector/src/ViewModel/countryViewModel.dart';
 
 class Country {
   String? countryName;
@@ -16,29 +15,13 @@ class Country {
         countryName: json['name']);
   }
 
+  /// use this factory to use asset images in this package, by passing Country
   factory Country.forCallBack(Country? country) {
     return Country(
         countryShortName: country?.countryShortName,
         dialCode: country?.dialCode,
-        icon: "packages/${PackageUtils.packageName}/${country?.icon}",
+        icon:
+            "packages/${PackageUtils.packageName}/asset/images/${country?.countryShortName?.toLowerCase()}.png",
         countryName: country?.countryName);
-  }
-
-  static Country? findByShortName(String? shortName) {
-    if (shortName == null) return null;
-    try {
-      return CountryViewModel.instance.countries.singleWhere((element) =>
-          element.countryShortName?.toLowerCase() == shortName.toLowerCase());
-    } catch (e) {
-      return null;
-    }
-  }
-
-  static Country setDefaultCountry(Country country) {
-    return Country(
-        dialCode: country.dialCode,
-        countryName: country.countryName,
-        countryShortName: country.countryShortName,
-        icon: country.icon);
   }
 }

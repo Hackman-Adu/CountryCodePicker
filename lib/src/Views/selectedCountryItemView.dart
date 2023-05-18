@@ -10,6 +10,9 @@ class SelectedCountryItemView extends StatelessWidget {
 
   CountryViewModel get viewModel => CountryViewModel.instance;
 
+  String? get countryIcon =>
+      country?.icon?.replaceAll("packages/${PackageUtils.packageName}/", "");
+
   @override
   Widget build(BuildContext context) {
     if (country == null) return const SizedBox(height: 0);
@@ -19,8 +22,8 @@ class SelectedCountryItemView extends StatelessWidget {
           Navigator.of(context).pop(null);
         },
         minLeadingWidth: 0,
-        leading: country?.icon != null
-            ? Image.asset(country?.icon ?? "",
+        leading: countryIcon != null
+            ? Image.asset(countryIcon ?? "",
                 height: 50, width: 18, package: PackageUtils.packageName)
             : Icon(Icons.language_rounded,
                 color: viewModel.selectorTheme?.countryNameColor),

@@ -5,6 +5,8 @@ import 'package:dialcodeselector/src/Views/countriesMainView.dart';
 import 'package:flutter/material.dart';
 
 class DialCodeSelector {
+  static CountryViewModel get _viewModel => CountryViewModel.instance;
+
   static Future<void> selectCountry(BuildContext context,
       {String? initialShortName,
       DialCodeSelectorTheme? selectorTheme,
@@ -25,7 +27,11 @@ class DialCodeSelector {
     onCountrySelected?.call(Country.forCallBack(country));
   }
 
-  static Future<void> init() async {
-    await CountryViewModel.instance.getCountries;
-  }
+  static Future<void> init() async => _viewModel.getCountries;
+
+  static Country? getCountryByShortName({String? shortName}) =>
+      _viewModel.getCountryByShortName(shortName: shortName);
+
+  static Country? getCountryByDialCode({String? dialCode}) =>
+      _viewModel.getCountryByDialCode(dialCode: dialCode);
 }

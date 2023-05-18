@@ -33,12 +33,9 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   String? initialCountrCode;
 
-//set your default country
-  Country selectedCountry = Country.setDefaultCountry(Country(
-      countryName: "Ghana",
-      countryShortName: "gh",
-      dialCode: "+233",
-      icon: "asset/images/gh.png"));
+// Set default country using country dial code or short name
+  Country? selectedCountry =
+      DialCodeSelector.getCountryByDialCode(dialCode: "233");
 
 //implement callback
   void onCountrySelected(Country country) {
@@ -62,19 +59,19 @@ class _HomeViewState extends State<HomeView> {
                     highlightElevation: 0,
                     onPressed: () async {
                       await DialCodeSelector.selectCountry(context,
-                          initialShortName: selectedCountry.countryShortName,
+                          initialShortName: selectedCountry?.countryShortName,
                           onCountrySelected: onCountrySelected);
                     },
                     child: Row(mainAxisSize: MainAxisSize.min, children: [
                       const SizedBox(width: 11),
-                      Image.asset(selectedCountry.icon ?? "",
+                      Image.asset(selectedCountry?.icon ?? "",
                           height: 21, width: 21),
                       const SizedBox(width: 5),
                       const Icon(Icons.arrow_drop_down),
                       const SizedBox(width: 7),
                       Padding(
                           padding: const EdgeInsets.only(right: 13),
-                          child: Text(selectedCountry.dialCode ?? "",
+                          child: Text(selectedCountry?.dialCode ?? "",
                               style: const TextStyle(
                                   color: Colors.black, fontSize: 16)))
                     ]))),

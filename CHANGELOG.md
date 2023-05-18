@@ -21,3 +21,9 @@
 ## 1.0.8
 
 - Can now customise the bottom sheet
+
+## 1.0.9
+
+- Find country by short name
+- Find country by dial code
+- Improved UI
