@@ -37,8 +37,12 @@ class _HomeViewState extends State<HomeView> {
   Country? selectedCountry =
       DialCodeSelector.getCountryByDialCode(dialCode: "233");
 
+// Define theme for the country code picker
+  DialCodeSelectorTheme get selectorTheme => DialCodeSelectorTheme(
+      showCountriesOnly: true, titleColor: Colors.blueGrey);
+
 //implement callback
-  void onCountrySelected(Country country) {
+  void onCountrySelected(Country? country) {
     selectedCountry = country;
     setState(() {});
   }
@@ -59,6 +63,7 @@ class _HomeViewState extends State<HomeView> {
                     highlightElevation: 0,
                     onPressed: () async {
                       await DialCodeSelector.selectCountry(context,
+                          selectorTheme: selectorTheme,
                           initialShortName: selectedCountry?.countryShortName,
                           onCountrySelected: onCountrySelected);
                     },

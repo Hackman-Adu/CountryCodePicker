@@ -24,3 +24,9 @@
 - Find country by short name
 - Find country by dial code
 - Improved UI
+
+## 1.0.9
+
+- Fixed null country error
+- Updated the example
+- Can adjust the corner radius of the picker

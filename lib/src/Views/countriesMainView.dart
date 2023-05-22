@@ -6,7 +6,6 @@ import 'package:dialcodeselector/src/Views/mainViewAppBar.dart';
 import 'package:dialcodeselector/src/Views/searchCountryTextField.dart';
 import 'package:dialcodeselector/src/Views/selectedCountryItemView.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class CountriesMainView extends StatefulWidget {
   final String? initialShortName;
@@ -42,7 +41,6 @@ class _CountriesMainViewState extends State<CountriesMainView> {
   @override
   void initState() {
     super.initState();
-    onLaunch();
     _countries = viewModel.countries;
     _filteredCountries = _countries;
     _initialShortName = widget.initialShortName;
@@ -50,10 +48,6 @@ class _CountriesMainViewState extends State<CountriesMainView> {
       viewModel.selectorTheme = widget.dialCodeSelectorTheme;
     }
     viewModel.selectedCountry = selectedCountry;
-  }
-
-  void onLaunch() async {
-    await HapticFeedback.mediumImpact();
   }
 
   Country? get selectedCountry =>
@@ -70,8 +64,9 @@ class _CountriesMainViewState extends State<CountriesMainView> {
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-                borderRadius:
-                    const BorderRadius.vertical(top: Radius.circular(11)),
+                borderRadius: BorderRadius.vertical(
+                    top: Radius.circular(
+                        widget.dialCodeSelectorTheme?.sheetCornerRadius ?? 11)),
                 color: viewModel.selectorTheme?.backgroundColor),
             child: Column(children: [
               const MainViewAppBar(),
