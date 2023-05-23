@@ -30,3 +30,7 @@
 - Fixed null country error
 - Updated the example
 - Can adjust the corner radius of the picker
+
+## 2.0.0
+
+- Set default when null
