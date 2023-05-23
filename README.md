@@ -2,7 +2,13 @@
 
 Package designed to select either country or country dial code
 
-<img src="https://github.com/Hackman-Adu/CountryCodePicker/assets/59240626/a5469a8b-7d98-4a09-8558-09ca14fc3207" width="49.5%" /> <img src="https://github.com/Hackman-Adu/CountryCodePicker/assets/59240626/c00fe7da-3e98-451a-9862-021f49140669" width="49.5%" /><img src="https://github.com/Hackman-Adu/CountryCodePicker/assets/59240626/b74ca391-678b-48c1-9d03-65edc496f086" width="49.5%" />
+# Screens
+
+<div style = "align:center;">
+<img src="screenshots/Screenshot_1.png" width="300" />
+<img src="screenshots/Screenshot_3.png" width="300" />
+<img src="screenshots/Screenshot_3.png" width="300" />
+</div>
 
 ## pubspec.yaml
 
