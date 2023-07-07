@@ -4,8 +4,6 @@ class DialCodeSelectorService {
   static Map<String, dynamic> get _countriesJson => {
         "countries": [
           {"name": "Afghanistan", "code": "AF", "dial_code": "+93"},
-          {"name": "Åland", "code": "AX", "dial_code": "+358"},
-          {"name": "Shqipëria", "code": "AL", "dial_code": "+355"},
           {"name": "Algeria", "code": "DZ", "dial_code": "+213"},
           {"name": "American Samoa", "code": "AS", "dial_code": "+1684"},
           {"name": "Andorra", "code": "AD", "dial_code": "+376"},
@@ -34,16 +32,6 @@ class DialCodeSelectorService {
           {"name": "Botswana", "code": "BW", "dial_code": "+267"},
           {"name": "Bouvetøya", "code": "BV", "dial_code": "+47"},
           {"name": "Brasil", "code": "BR", "dial_code": "+55"},
-          {
-            "name": "British Indian Ocean Territory",
-            "code": "IO",
-            "dial_code": "+246"
-          },
-          {
-            "name": "Negara Brunei Darussalam",
-            "code": "BN",
-            "dial_code": "+673"
-          },
           {"name": "Bulgaria", "code": "BG", "dial_code": "+359"},
           {"name": "Burkina Faso", "code": "BF", "dial_code": "+226"},
           {"name": "Burundi", "code": "BI", "dial_code": "+257"},
@@ -52,11 +40,6 @@ class DialCodeSelectorService {
           {"name": "Canada", "code": "CA", "dial_code": "+1"},
           {"name": "Cabo Verde", "code": "CV", "dial_code": "+238"},
           {"name": "Cayman Islands", "code": "KY", "dial_code": "+1345"},
-          {
-            "name": "Central African Republic ",
-            "code": "CF",
-            "dial_code": "+236"
-          },
           {"name": "Chad", "code": "TD", "dial_code": "+235"},
           {"name": "Chile", "code": "CL", "dial_code": "+56"},
           {"name": "China", "code": "CN", "dial_code": "+86"},
@@ -65,11 +48,6 @@ class DialCodeSelectorService {
           {"name": "Colombia", "code": "CO", "dial_code": "+57"},
           {"name": "Komori", "code": "KM", "dial_code": "+269"},
           {"name": "Congo", "code": "CG", "dial_code": "+242"},
-          {
-            "name": "Congo (Democratic Republic)",
-            "code": "CD",
-            "dial_code": "+243"
-          },
           {"name": "Cook Islands", "code": "CK", "dial_code": "+682"},
           {"name": "Costa Rica", "code": "CR", "dial_code": "+506"},
           {"name": "Côte d'Ivoire", "code": "CI", "dial_code": "+225"},
@@ -88,22 +66,12 @@ class DialCodeSelectorService {
           {"name": "Eritrea", "code": "ER", "dial_code": "+291"},
           {"name": "Estonia", "code": "EE", "dial_code": "+372"},
           {"name": "Ethiopia", "code": "ET", "dial_code": "+251"},
-          {
-            "name": "Falkland Islands (Malvinas]",
-            "code": "FK",
-            "dial_code": "+500"
-          },
           {"name": "Faroe Islands", "code": "FO", "dial_code": "+298"},
           {"name": "Fiji", "code": "FJ", "dial_code": "+679"},
           {"name": "Finland", "code": "FI", "dial_code": "+358"},
           {"name": "France", "code": "FR", "dial_code": "+33"},
           {"name": "French Guiana", "code": "GF", "dial_code": "+594"},
           {"name": "French Polynesia", "code": "PF", "dial_code": "+689"},
-          {
-            "name": "French Southern Territories",
-            "code": "TF",
-            "dial_code": "+262"
-          },
           {"name": "Gabon", "code": "GA", "dial_code": "+241"},
           {"name": "Gambia", "code": "GM", "dial_code": "+220"},
           {"name": "Georgia", "code": "GE", "dial_code": "+995"},
@@ -121,11 +89,6 @@ class DialCodeSelectorService {
           {"name": "Guinea-Bissau", "code": "GW", "dial_code": "+245"},
           {"name": "Guyana", "code": "GY", "dial_code": "+592"},
           {"name": "Haiti", "code": "HT", "dial_code": "+509"},
-          {
-            "name": "Heard Island and McDonald Islands",
-            "code": "HM",
-            "dial_code": "+0"
-          },
           {"name": "Vatican", "code": "VA", "dial_code": "+379"},
           {"name": "Honduras", "code": "HN", "dial_code": "+504"},
           {"name": "Hong Kong", "code": "HK", "dial_code": "+852"},
@@ -146,19 +109,9 @@ class DialCodeSelectorService {
           {"name": "Kazakhstan", "code": "KZ", "dial_code": "+7"},
           {"name": "Kenya", "code": "KE", "dial_code": "+254"},
           {"name": "Kiribati", "code": "KI", "dial_code": "+686"},
-          {
-            "name": "Korea Democratic People's Republic",
-            "code": "KP",
-            "dial_code": "+850"
-          },
           {"name": "Korea", "code": "KR", "dial_code": "+82"},
           {"name": "Kuwait", "code": "KW", "dial_code": "+965"},
           {"name": "Kyrgyzstan", "code": "KG", "dial_code": "+996"},
-          {
-            "name": "Lao People's Democratic Republic",
-            "code": "LA",
-            "dial_code": "+856"
-          },
           {"name": "Latvia", "code": "LV", "dial_code": "+371"},
           {"name": "Lebanon", "code": "LB", "dial_code": "+961"},
           {"name": "Lesotho", "code": "LS", "dial_code": "+266"},
@@ -168,11 +121,6 @@ class DialCodeSelectorService {
           {"name": "Lithuania", "code": "LT", "dial_code": "+370"},
           {"name": "Luxembourg", "code": "LU", "dial_code": "+352"},
           {"name": "Macao", "code": "MO", "dial_code": "+853"},
-          {
-            "name": " Macedonia (North Republic)",
-            "code": "MK",
-            "dial_code": "+389"
-          },
           {"name": "Madagascar", "code": "MG", "dial_code": "+261"},
           {"name": "Malawi", "code": "MW", "dial_code": "+265"},
           {"name": "Malaysia", "code": "MY", "dial_code": "+60"},
@@ -206,11 +154,6 @@ class DialCodeSelectorService {
           {"name": "Nigeria", "code": "NG", "dial_code": "+234"},
           {"name": "Niue", "code": "NU", "dial_code": "+683"},
           {"name": "Norfolk Island", "code": "NF", "dial_code": "+672"},
-          {
-            "name": "Northern Mariana Islands",
-            "code": "MP",
-            "dial_code": "+1670"
-          },
           {"name": "Norway", "code": "NO", "dial_code": "+47"},
           {"name": "Oman", "code": "OM", "dial_code": "+968"},
           {"name": "Pakistan", "code": "PK", "dial_code": "+92"},
@@ -236,16 +179,6 @@ class DialCodeSelectorService {
           {"name": "Saint Kitts and Nevis", "code": "KN", "dial_code": "+1869"},
           {"name": "Saint Lucia", "code": "LC", "dial_code": "+1758"},
           {"name": "Saint-Martin", "code": "MF", "dial_code": "+590"},
-          {
-            "name": "Saint Pierre and Miquelon",
-            "code": "PM",
-            "dial_code": "+508"
-          },
-          {
-            "name": "Saint Vincent and the Grenadines",
-            "code": "VC",
-            "dial_code": "+1784"
-          },
           {"name": "Samoa", "code": "WS", "dial_code": "+685"},
           {"name": "San Marino", "code": "SM", "dial_code": "+378"},
           {"name": "Sao Tome and Principe", "code": "ST", "dial_code": "+239"},
@@ -283,11 +216,6 @@ class DialCodeSelectorService {
           {"name": "Tunisia", "code": "TN", "dial_code": "+216"},
           {"name": "Turkey", "code": "TR", "dial_code": "+90"},
           {"name": "Turkmenistan", "code": "TM", "dial_code": "+993"},
-          {
-            "name": "Turks and Caicos Islands",
-            "code": "TC",
-            "dial_code": "+1649"
-          },
           {"name": "Tuvalu", "code": "TV", "dial_code": "+688"},
           {"name": "Uganda", "code": "UG", "dial_code": "+256"},
           {"name": "Ukraine", "code": "UA", "dial_code": "+380"},
@@ -299,16 +227,6 @@ class DialCodeSelectorService {
           {"name": "Vanuatu", "code": "VU", "dial_code": "+678"},
           {"name": "Venezuela", "code": "VE", "dial_code": "+58"},
           {"name": "Viet Nam", "code": "VN", "dial_code": "+84"},
-          {
-            "name": "British Virgin Islands",
-            "code": "VG",
-            "dial_code": "+1284"
-          },
-          {
-            "name": "United States Virgin Islands",
-            "code": "VI",
-            "dial_code": "+1340"
-          },
           {"name": "Wallis and Futuna", "code": "WF", "dial_code": "+681"},
           {"name": "Yemen", "code": "YE", "dial_code": "+967"},
           {"name": "Zambia", "code": "ZM", "dial_code": "+260"},
@@ -319,9 +237,12 @@ class DialCodeSelectorService {
   static Future<List<Country>> get getCountries async {
     try {
       var data = _countriesJson;
-      return List<Country>.from(data['countries'].map((j) {
+      var listMap = data['countries'] as List<dynamic>;
+      listMap.sort((a, b) => a['name'].toString().compareTo(b['name']));
+      var value = List<Country>.from(listMap.map((j) {
         return Country.fromJSON(j);
       }));
+      return value;
     } catch (e) {
       return [];
     }

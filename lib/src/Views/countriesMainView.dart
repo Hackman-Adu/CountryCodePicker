@@ -75,7 +75,10 @@ class _CountriesMainViewState extends State<CountriesMainView> {
               Padding(
                   padding: const EdgeInsets.only(top: 7),
                   child: SelectedCountryItemView(country: selectedCountry)),
-              Expanded(child: CountriesListView(_filteredCountries))
+              _filteredCountries.length > 0
+                  ? Expanded(child: CountriesListView(_filteredCountries))
+                  : widget.dialCodeSelectorTheme?.emptySearchResultsView ??
+                      const SizedBox()
             ])));
   }
 }

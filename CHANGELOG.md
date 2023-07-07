@@ -34,3 +34,7 @@
 ## 2.0.0
 
 - Set default when null
+
+## 2.0.1
+
+- Resolved sorting issue

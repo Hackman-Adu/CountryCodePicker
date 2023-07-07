@@ -14,10 +14,12 @@ class DialCodeSelectorTheme {
   final Color? searchFieldBorderColor;
   final Color? searchFieldTextColor;
   final Color? checkedBoxColor;
+  final Widget? emptySearchResultsView;
   final double? sheetCornerRadius;
   DialCodeSelectorTheme(
       {this.showCountriesOnly = false,
       this.title = "Select Country",
+      this.emptySearchResultsView,
       this.sheetCornerRadius = 11,
       this.titleFontWeight = FontWeight.bold,
       this.searchFieldBorderColor = PackageUtils.textColorBlack,
