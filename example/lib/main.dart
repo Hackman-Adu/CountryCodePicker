@@ -39,7 +39,9 @@ class _HomeViewState extends State<HomeView> {
 
 // Define theme for the country code picker
   DialCodeSelectorTheme get selectorTheme => DialCodeSelectorTheme(
-      showCountriesOnly: true, titleColor: Colors.blueGrey);
+      emptySearchResultsView: const Text("Nothing Found"),
+      showCountriesOnly: true,
+      titleColor: Colors.blueGrey);
 
 //implement callback
   void onCountrySelected(Country? country) {
